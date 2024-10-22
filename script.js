@@ -19,8 +19,8 @@ async function fetchWeatherData() { //change to async function
     } catch (error) {
         console.error('Error fetching results:', error)
     }
-
 }
+fetchWeatherData();
     /*console.log(`wind: ${wind}`)
     console.log(`Temperature: ${temp}`)
     console.log(`Feels like: ${tempFeels}`)
@@ -31,24 +31,20 @@ async function fetchWeatherData() { //change to async function
     /*.catch(error => {
     console.log('Error fetching results:', error);});*/
 
+
 //Add Event Listener to the get weather button
 const button = document.querySelector('#get-weather-btn');
 button.addEventListener('click', (event) => {
-        const buttonClicked = event.target.closest('#get-weather-btn');
-        if(!buttonClicked) return;
-        document.getElementById('weather-info').style.display = 'block';
-        button.style.display = 'none';
-        document.getElementById('hide-weather-btn').style.display = 'block';
-        fetchWeatherData();
+        document.getElementById('weather-info').hidden = false;
+        button.hidden = true;
+        document.getElementById('hide-weather-btn').hidden = false;
     });    
 
 //Hide the hide weather button
 document.getElementById('hide-weather-btn').addEventListener('click', (event) => {
-    const hideBtn = event.target.closest('#hide-weather-btn');
-    if(!hideBtn) return;
-    document.getElementById('weather-info').style.display = 'none';
-    hideBtn.style.display = 'none';
-    document.querySelector('#get-weather-btn').style.display = 'block';
+    document.getElementById('weather-info').hidden = true;
+    document.getElementById('hide-weather-btn').hidden = true;
+    document.querySelector('#get-weather-btn').hidden = false;
 })
 
 
@@ -72,7 +68,7 @@ document.getElementById('wind').textContent =`Wind: ${wind}`*/
 
 //document.body.appendChild(weatherInfo);
 }
-
+displayWeather();
 
 
 
@@ -81,5 +77,5 @@ document.getElementById('wind').textContent =`Wind: ${wind}`*/
 button.addEventListener('click', fetchWeatherData);*/
 
 
-displayWeather();
+
 
