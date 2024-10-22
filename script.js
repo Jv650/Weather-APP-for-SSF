@@ -4,7 +4,7 @@
 async function fetchWeatherData() { //change to async function
     try {
     const response = await fetch (
-        'https://api.openweathermap.org/data/2.5/weather?lat=37.6547&lon=-122.4077&appid=4361b88f0f37e3b404be7ce6d94de062'
+        'https://api.openweathermap.org/data/2.5/weather?lat=37.6547&lon=-122.4077&appid=4361b88f0f37e3b404be7ce6d94de062&units=imperial'
     );
     const data = await response.json();
     //Selecting data from API that I want to display on my site
@@ -14,13 +14,15 @@ async function fetchWeatherData() { //change to async function
     const tempFeels = data.main.feels_like
     const humidity = data.main.humidity
     const wind = data.wind.speed
-    const weatherDescription = data.weather[0].description //the [0] is used because i needed to access array elements 
+    const weatherDescription = data.weather[0].main //the [0] is used because i needed to access array elements inside API
     displayWeather(city, country, temp, tempFeels, humidity, wind, weatherDescription)
     } catch (error) {
         console.error('Error fetching results:', error)
     }
 }
 fetchWeatherData();
+
+
     /*console.log(`wind: ${wind}`)
     console.log(`Temperature: ${temp}`)
     console.log(`Feels like: ${tempFeels}`)
