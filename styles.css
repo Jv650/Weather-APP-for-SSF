@@ -38,7 +38,7 @@ h1 {
     justify-content: center;
 }
 
-button:hover {
+#get-weather-btn:hover {
     background-color: rgb(190, 129, 15);
 }
 
@@ -53,10 +53,6 @@ button:hover {
 
 }
 
-#weather-info p {
-    font-size: 20px;
-    margin: 5px 0;
-}
 
 #hide-weather-btn {
     padding: 20px 20px;
@@ -70,7 +66,6 @@ button:hover {
     align-items: center;
     justify-content: center;
 }
-button {
-    align-items: center;
-    justify-content: center;
+#hide-weather-btn:hover {
+    background-color: rgb(190, 129, 15);
 }
